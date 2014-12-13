@@ -1044,7 +1044,7 @@ function reject(reason) {
     trackRejection(rejection, reason);
     // Log the rejection.
     console.error('[Q] Unhandled promise rejection:', 
-        reason.hasOwnProperty('stack') ? reason.stack : reason);
+        reason && reason.hasOwnProperty('stack') ? reason.stack : reason);
 
     return rejection;
 }
