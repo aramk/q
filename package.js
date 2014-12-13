@@ -1,7 +1,7 @@
 Package.describe({
   name: 'aramk:q',
   summary: "A tool for making and composing asynchronous promises in JavaScript",
-  version: "1.0.1",
+  version: "1.0.1_1",
   git: "https://github.com/aramk/meteor-q.git"
 });
 
