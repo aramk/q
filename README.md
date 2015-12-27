@@ -1,4 +1,10 @@
+# Q
+
+A tool for creating and composing asynchronous promises in JavaScript
+
 [![Build Status](https://secure.travis-ci.org/kriskowal/q.svg?branch=master)](http://travis-ci.org/kriskowal/q)
+
+## Summary
 
 <a href="http://promises-aplus.github.com/promises-spec">
     <img src="http://kriskowal.github.io/q/q.png" align="right" alt="Q logo" />
