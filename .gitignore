@@ -4,8 +4,10 @@ CHANGES.html
 README.html
 .tmp
 q.min.js
-
-.coverage_data/
-.coverage_debug/
-cover_html/
 .build*
+
+coverage/
+
+# IntelliJ IDEA project files
+.idea
+*.iml

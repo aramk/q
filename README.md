@@ -1,8 +1,7 @@
-[![Build Status](https://secure.travis-ci.org/kriskowal/q.png?branch=master)](http://travis-ci.org/kriskowal/q)
+[![Build Status](https://secure.travis-ci.org/kriskowal/q.svg?branch=master)](http://travis-ci.org/kriskowal/q)
 
 <a href="http://promises-aplus.github.com/promises-spec">
-    <img src="http://kriskowal.github.io/q/q.png"
-         align="right" alt="Q logo" />
+    <img src="http://kriskowal.github.io/q/q.png" align="right" alt="Q logo" />
 </a>
 
 *This is Q version 1, from the `v1` branch in Git. This documentation applies to
@@ -335,6 +334,18 @@ Q.allSettled(promises)
 });
 ```
 
+The ``any`` function accepts an array of promises and returns a promise that is
+fulfilled by the first given promise to be fulfilled, or rejected if all of the
+given promises are rejected.
+
+```javascript
+Q.any(promises)
+.then(function (first) {
+    // Any of the promises was fulfilled.
+}, function (error) {
+    // All of the promises were rejected.
+});
+```
 
 ### Sequences
 
@@ -843,6 +854,15 @@ stack trace! This is very helpful for debugging, as otherwise you end up getting
 only the first line, plus a bunch of Q internals, with no sign of where the
 operation started.
 
+In node.js, this feature can also be enabled through the Q_DEBUG environment
+variable:
+
+```
+Q_DEBUG=1 node server.js
+```
+
+This will enable long stack support in every instance of Q.
+
 This feature does come with somewhat-serious performance and memory overhead,
 however. If you're working with lots of promises, or trying to scale a server
 to many users, you should probably keep it off. But in development, go for it!
@@ -855,6 +875,6 @@ You can view the results of the Q test suite [in your browser][tests]!
 
 ## License
 
-Copyright 2009–2014 Kristopher Michael Kowal
+Copyright 2009–2015 Kristopher Michael Kowal and contributors
 MIT License (enclosed)
 
