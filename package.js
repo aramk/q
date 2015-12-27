@@ -7,6 +7,5 @@ Package.describe({
 
 Package.on_use(function (api) {
   api.versionsFrom('METEOR@0.9.0');
-  api.export('Q');
   api.add_files('q.js', ['client', 'server']);
 });

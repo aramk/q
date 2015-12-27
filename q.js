@@ -55,20 +55,29 @@
         }
 
     // <script>
-    } else if (typeof window !== "undefined" || typeof self !== "undefined") {
+    } else if (typeof window !== "undefined" || typeof global !== "undefined" ||
+            typeof self !== "undefined") {
+
         // Prefer window over self for add-on scripts. Use self for
         // non-windowed contexts.
-        var global = typeof window !== "undefined" ? window : self;
+        var _global = null;
+        if (typeof window !== "undefined") {
+            _global = window;
+        } else if (typeof global !== "undefined") {
+            _global = global;
+        } else {
+            _global = self;
+        }
 
         // Get the `window` object, save the previous Q global
         // and initialize Q as a global.
-        var previousQ = global.Q;
-        global.Q = definition();
+        var previousQ = _global.Q;
+        _global.Q = definition();
 
         // Add a noConflict function so Q can be removed from the
         // global namespace.
-        global.Q.noConflict = function () {
-            global.Q = previousQ;
+        _global.Q.noConflict = function () {
+            _global.Q = previousQ;
             return this;
         };
 
